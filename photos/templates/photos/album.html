@@ -1,0 +1,16 @@
+{% extends 'photos/main.html' %}
+{% load thumbnail %}
+
+{% block text %}
+    <div class="page-header">
+        <h1><a href="/">Gallery</a></h1>
+    </div>
+
+    <div id="container">
+    {% for album in albums %}
+        <div class="one-fifth">
+            <p> <a title='{{ album.title }}' href='{{ album.slug }}'><img src='{{ album.img.url }}' alt="" width="160" height="160"></a> </p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'photos/main.html' %}
+{% load thumbnail %}
+
+{% block text %}
+    <div class="page-header">
+        <h1><a href="/">{{ slug }}</a></h1>
+    </div>
+
+    <div id="container">
+        <div class="gallery">
+            <ul class="images">
+            {% for photo in photos %}
+                <div class="one-fifth">
+                    <li class="image">
+                        <a rel="lightbox-mygallery" href='{{ photo.img.url }}' title='{{ photo.title }}'><img src='{{ photo.img.url }}' width="160" height="160"></a>
+                    </li>
+                </div>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

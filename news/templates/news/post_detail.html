@@ -11,4 +11,35 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
+    <!-- <h2>{{ post.title }}</h2>
+   {% if sended %}
+        <p>Thanks! Your message was send.</p>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Comm_Form" />
+    </form>
+    -->
+
+    <div><h4>Comments:</h4>
+        {% for comment in comments %}
+            {{ comment.comments_text }}
+            <div class="date">
+                {{ comment.date }}
+            </div>
+            <p></p>
+        {% endfor %}
+    </div>
+    
+    {% if username %}
+        <form action="{% url 'addcomment' pk=post.pk %}" method="post">
+            {% csrf_token %}
+            {{ form_comments.as_p }}
+            <input type="submit" value="Send comment" />
+       </form>
+    {% else %}
+       <p>Login for writing a comment. <a href="/auth/login/">Login</a></p>
+    {% endif %}
+
 {% endblock %}

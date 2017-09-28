@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<html>
+    <head>
+        	<title>Darouva</title>
+
+    		<link rel="stylesheet" href="{% static 'css/news.css' %}">
+            <link rel="stylesheet" type="text/css" media="screen" href="/static/css/style.css">
+            <link rel="stylesheet" type="text/css" media="screen" href="/static/css/simple_menu.css">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Dorouuu</a></h1>
+            <div class="login">
+            	{% if user.is_authenticated %}
+                	<li class="auth_user"><a href="/auth/logout/">Log out {{ username }}</a></li>
+            	{% else %}
+                    <li class="auth_user"><a href="/auth/login/">Log in</a></li>
+            	{% endif %}
+            </div>
+        </div>
+        <div id="container">
+            <div>
+                <a href="/newsfeed/">
+                    <h4>Go to news!</h4>
+                </a>
+                <a href="/photos/">
+                    <h4>Go to albums, eee</h4>
+                </a>
+            </div>
+        </div>
+
+        <div id="footer">
+            <!-- First Column -->
+            <div class="one-fourth">
+                <h3>Useful Links</h3>
+                <ul class="footer_links">
+                    <li><a href="#">Lorem Ipsum</a></li>
+                    <li><a href="#">Ellem Ciet</a></li>
+                    <li><a href="#">Currivitas</a></li>
+                    <li><a href="#">Salim Aritu</a></li>
+                </ul>
+            </div>
+            <!-- Second Column -->
+            <div class="one-fourth">
+                <h3>Terms</h3>
+                <ul class="footer_links">
+                    <li><a href="#">Lorem Ipsum</a></li>
+                    <li><a href="#">Ellem Ciet</a></li>
+                     <li><a href="#">Currivitas</a></li>
+                    <li><a href="#">Salim Aritu</a></li>
+                </ul>
+            </div>
+            <!-- Third Column -->
+            <div class="one-fourth">
+                <h3>Information</h3>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet enim id dui tincidunt vestibulum rhoncus a felis.
+                <div id="social_icons"> Theme by <a href="http://www.csstemplateheaven.com">CssTemplateHeaven</a><br>
+                  Photos © <a href="http://dieterschneider.net">Dieter Schneider</a> </div>
+            </div>
+            <!-- Fourth Column -->
+            <div class="one-fourth last">
+                <h3>Socialize</h3>
+                <img src="/static/img/icon_fb.png" alt=""> <img src="/static/img/icon_twitter.png" alt=""> <img src="/static/img/icon_in.png" alt="">
+            </div>
+            <div style="clear:both; height: 40px"></div>
+        </div>
+        <!-- END footer -->
+    </body>
+</html>

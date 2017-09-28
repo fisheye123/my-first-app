@@ -1,0 +1,24 @@
+# coding=utf-8
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render
+from django.views.generic import TemplateView
+from news.models import Post
+from photos.models import Album, Photo
+
+
+class IndexView(TemplateView):
+
+    template_name = 'mainpage.html'
+
+    def get_context_data(self, **kwargs):
+        '''
+        Метод передаёт в шаблон список всех продуктов и категорий
+        :param kwargs:
+        :return:
+        '''
+        data = super(IndexView, self).get_context_data(**kwargs)
+
+        data['photo_gallery'] = Photo.objects.filter()
+        data['news_feed'] = Post.objects.filter()
+
+        return data
